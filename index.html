@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Execution Flow Visualizer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Market Microstructure Lab</p>
+          <h1>Execution Flow Visualizer</h1>
+          <p class="subtitle">
+            Interactive D3.js dashboard for routing transparency, fill quality,
+            and venue allocation analysis.
+          </p>
+        </div>
+        <div class="controls">
+          <button id="pauseBtn" type="button">Pause Stream</button>
+          <button id="burstBtn" type="button">Inject Burst</button>
+          <button id="resetBtn" type="button">Reset Session</button>
+        </div>
+      </header>
+
+      <section class="kpis" id="kpiGrid"></section>
+
+      <main class="dashboard">
+        <section class="card card-network">
+          <div class="card-title-row">
+            <h2>Routing Graph + Fill Animation</h2>
+            <p id="fillsCountLabel"></p>
+          </div>
+          <div id="networkViz" class="viz-slot"></div>
+        </section>
+
+        <section class="card card-book">
+          <h2>Live Depth Of Book</h2>
+          <div id="bookViz" class="viz-slot"></div>
+        </section>
+
+        <section class="card card-treemap">
+          <h2>Allocation Treemap</h2>
+          <div id="treemapViz" class="viz-slot"></div>
+        </section>
+
+        <section class="card card-tape">
+          <h2>Recent Fills Tape</h2>
+          <div id="tape" class="fill-tape"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
